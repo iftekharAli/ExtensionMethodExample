@@ -6,15 +6,33 @@ using System.Threading.Tasks;
 
 namespace ExtensionMethodExample
 {
+    class Program
+    {
 
-         /*
-    
-           An extension method is a static method of a static class, 
-           where the "this" modifier is applied to the first parameter. 
-           The type of the first parameter will be the type that is extended.
-           Extension methods are only in scope when you explicitly import the namespace into your source code with a using directive.
+        static void Main(string[] args)
+        {
+            string value = "dot net perls";
+            value = value.UppercaseFirstLetter();
+            ExtensionMethodsCustom obj = new ExtensionMethodsCustom();
+            obj.Test1();
+            obj.Test2();
+            obj.Test3();
+            int a = 10.MultiplyBy(2);
+            Console.WriteLine(a);
+            Console.ReadKey();
 
-        */
+        }
+    }
+
+
+    /*
+
+      An extension method is a static method of a static class, 
+      where the "this" modifier is applied to the first parameter. 
+      The type of the first parameter will be the type that is extended.
+      Extension methods are only in scope when you explicitly import the namespace into your source code with a using directive.
+
+   */
     public static class ExtensionMethods
     {
         public static string UppercaseFirstLetter(this string value)
@@ -51,23 +69,6 @@ namespace ExtensionMethodExample
         public static void Test3(this ExtensionMethodsCustom obj)
         {
             Console.WriteLine("i am test3");
-        }
-    }
-    class Program
-    {
-
-        static void Main(string[] args)
-        {
-            string value = "dot net perls";
-            value = value.UppercaseFirstLetter();
-            ExtensionMethodsCustom obj = new ExtensionMethodsCustom();
-            obj.Test1();
-            obj.Test2();
-            obj.Test3();
-            int a = 10.MultiplyBy(2);
-            Console.WriteLine(a);
-            Console.ReadKey();
-
         }
     }
 
